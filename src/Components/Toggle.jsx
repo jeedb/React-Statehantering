@@ -1,7 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function Toggle() {
-    const [isDark, setIsDark] = useState(false);
+    const [isDark, setIsDark] = useState(() => {
+        const savedMode = localStorage.getItem("isDark");
+        return savedMode === "true" ? true : false;
+    });
+
+    useEffect(() => {
+        localStorage.setItem("isDark", isDark);
+    }, [isDark]);
 
     const toggleMode = () => { 
         setIsDark(!isDark);
@@ -19,7 +26,7 @@ function Toggle() {
                 alignItems: "center",
                 flexDirection: "column",
             }}
-      >
+        >
             <h2>{isDark ? "Dark Mode" : "Light Mode"}</h2>
 
             <button onClick={toggleMode}>Toggle Mode</button>
