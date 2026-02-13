@@ -1,5 +1,6 @@
 import Counter from "./Components/Counter"
 import LivePreview from "./Components/LivePreview";
+import ProductFilter from "./Components/ProductFilter";
 import Toggle from "./Components/Toggle";
 
 
@@ -13,6 +14,8 @@ function App() {
         <Toggle />
         <h1>Live Preview</h1>
         <LivePreview />
+        <h1>Product Filter</h1>
+        <ProductFilter />
     </div>
   )
 }
